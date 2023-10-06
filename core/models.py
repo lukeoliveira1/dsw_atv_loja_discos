@@ -6,7 +6,17 @@ class GenderChoices(models.TextChoices):
     POP = "Pop"
     MPB = "Mpb"
     SERTANEJO = "Sertanejo"
-    
+
+class PhonographicSeal(models.Model):
+
+    name = models.CharField(
+        max_length=50,
+        verbose_name="Nome",
+    )
+
+    def __str__(self):
+        return self.name
+
 class Disk(models.Model):
 
     name = models.CharField(
@@ -19,8 +29,9 @@ class Disk(models.Model):
         blank=True,
         null=True
     )
-    phonographic_seal = models.CharField(
-        max_length=15,
+    phonographic_seal = models.ForeignKey(
+        PhonographicSeal,
+        on_delete=models.CASCADE,
         verbose_name="Selo Fotográfico",
         blank=True,
         null=True
@@ -44,3 +55,20 @@ class Disk(models.Model):
     def __str__(self):
         return self.name
     
+
+class Artist(models.Model):
+    
+    name = models.CharField(
+        max_length=50,
+        verbose_name="Nome",
+    )
+    
+    disk = models.ManyToManyField(
+        Disk,
+        verbose_name="Discos",
+        blank=True,
+        null=True
+    )
+    
+    def __str__(self):
+        return self.name
