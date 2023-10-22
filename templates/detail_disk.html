@@ -8,26 +8,29 @@
   </head>
   <body>
 
-    <h1>Detalhes do Disco:</h1>
-
-    <div class="card" style="width: 18rem;">
-      <div class="card-header">
-      <b>{{ disk.name }}</b>
+    <div class="text-center">
+      <h1>Detalhes do Disco:</h1>
+  
+      <div class="card mx-auto" style="width: 18rem;">
+          <div class="card-header">
+              <b>{{ disk.name }}</b>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item"><b>Ano:</b> {{ disk.year }}</li>
+              <li class="list-group-item"><b>País:</b> {{ disk.country }}</li>
+              <li class="list-group-item"><b>Gênero:</b> {{ disk.gender }}</li>
+              <li class="list-group-item"><b>Quantidade:</b> {{ disk.quantity }}</li>
+              {% if disk.phonographic_seal %}
+              <li class="list-group-item"><b>Selo Fonográfico:</b> {{ disk.phonographic_seal.name }}</li>
+              {% endif %}
+              {% if disk.description %}
+              <li class="list-group-item"><b>Descrição:</b> {{ disk.description }}</li>
+              {% endif %}
+          </ul>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><b>Ano:</b> {{ disk.year }}</li>
-        <li class="list-group-item"><b>País:</b> {{ disk.country }}</li>
-        <li class="list-group-item"><b>Gênero:</b> {{ disk.gender }}</li>
-        <li class="list-group-item"><b>Quantidade:</b> {{ disk.quantity }}</li>
-        {% if disk.phonographic_seal %}
-        <li class="list-group-item"><b>Selo Fonográfico:</b> {{ disk.phonographic_seal.name }}</li>
-        {% endif %}
-        {% if disk.description %}
-        <li class="list-group-item"><b>Descrição:</b> {{ disk.description }}</li>
-        {% endif %}
-      </ul>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
