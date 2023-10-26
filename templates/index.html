@@ -1,43 +1,33 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="text-center">
-        <h1>Listagem de Discos</h1>
-    
-        <table class="table table-info">
-            <thead>
-                <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Ano</th>
-                    <th scope="col">País</th>
-                    <th scope="col">Gênero</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">#</th>
-                </tr>
-            </thead>
-    
-            {% for disk in disks %}
-            <tbody>
-                <tr>
-                    <td>{{ disk.name }}</td>
-                    <td>{{ disk.year }}</td>
-                    <td>{{ disk.country }}</td>
-                    <td>{{ disk.gender }}</td>
-                    <td>{{ disk.quantity }}</td>
-                    <td> <a href="{% url 'core:detail-disk' disk.id %}">Detalhes</a></td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
-    </div>
-    
-  </body>
-</html>
+{% extends 'base.html' %}
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+{% block content %}
+  <div>
+  <a href="{% url 'core:create-disk' %}">Criar Disco</a> 
+  </div>
+
+   <h1>Listagem de Discos</h1>
+   <table class="table table-info">
+       <thead>
+           <tr>
+               <th scope="col">Nome</th>
+               <th scope="col">Ano</th>
+               <th scope="col">País</th>
+               <th scope="col">Gênero</th>
+               <th scope="col">Quantidade</th>
+               <th scope="col">#</th>
+           </tr>
+       </thead>
+       {% for disk in disks %}
+       <tbody>
+           <tr>
+               <td>{{ disk.name }}</td>
+               <td>{{ disk.year }}</td>
+               <td>{{ disk.country }}</td>
+               <td>{{ disk.gender }}</td>
+               <td>{{ disk.quantity }}</td>
+               <td> <a href="{% url 'core:detail-disk' disk.id %}">Detalhes</a></td>
+           </tr>
+       </tbody>
+       {% endfor %}
+   </table>
+{% endblock %}

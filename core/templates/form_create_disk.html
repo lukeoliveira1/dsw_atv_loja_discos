@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+      <a href="{% url 'core:list-disks' %}">Voltar</a> 
+      </div>
+<div class="container" style="width: 30%;">
+      <h1>Criar novo disco</h1>
+      <form action="{% url 'core:create-disk' %}" method="post">
+            {%csrf_token%}
+            {{form}}
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Criar</button>
+      </form>
+</div>
+{% endblock %}
