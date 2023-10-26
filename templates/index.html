@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div>
-  <a href="{% url 'core:create-disk' %}">Criar Disco</a> 
+  <div style="display: flex; justify-content: end;">
+    <button class="btn btn-success">
+    <a href="{% url 'core:create-disk' %}" style="text-decoration: none; color: white;"">Criar Disco</a>
+    </button> 
   </div>
 
    <h1>Listagem de Discos</h1>
@@ -25,7 +27,11 @@
                <td>{{ disk.country }}</td>
                <td>{{ disk.gender }}</td>
                <td>{{ disk.quantity }}</td>
-               <td> <a href="{% url 'core:detail-disk' disk.id %}">Detalhes</a></td>
+               <td>
+                 <button class="btn btn-primary"><a href="{% url 'core:detail-disk' disk.id %}" style="text-decoration: none; color: white;">Visualizar</a></button>
+                 <button class="btn btn-primary"><a href="{% url 'core:edit-disk' disk.id %}" style="text-decoration: none; color: white;">Editar</a></button>
+                 <button class="btn btn-primary"><a href="{% url 'core:detail-disk' disk.id %}" style="text-decoration: none; color: white;">Deletar</a></button>
+                </td>
            </tr>
        </tbody>
        {% endfor %}
