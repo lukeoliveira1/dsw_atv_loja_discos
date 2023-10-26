@@ -43,3 +43,8 @@ def edit_disk(request, disk_id):
         context['form'] = form
 
         return render(request, 'disks/form_disk.html', context)
+    
+def delete_disk(request, disk_id):
+    disk = Disk.objects.get(pk=disk_id)
+    disk.delete()
+    return HttpResponseRedirect(reverse('core:list-disks'))

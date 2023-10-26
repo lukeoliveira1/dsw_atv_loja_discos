@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div style="display: flex; justify-content: end;">
-    <button class="btn btn-success">
+  <div style="display: flex; justify-content: space-between;margin-bottom: 20px;">
+    <h1>Listagem de Discos</h1>
+    <button class="btn btn-primary" style="margin: 10px;">
     <a href="{% url 'core:create-disk' %}" style="text-decoration: none; color: white;"">Criar Disco</a>
     </button> 
   </div>
 
-   <h1>Listagem de Discos</h1>
-   <table class="table table-info">
+   <table class="table table-light">
        <thead>
            <tr>
                <th scope="col">Nome</th>
@@ -28,9 +28,9 @@
                <td>{{ disk.gender }}</td>
                <td>{{ disk.quantity }}</td>
                <td>
-                 <button class="btn btn-primary"><a href="{% url 'core:detail-disk' disk.id %}" style="text-decoration: none; color: white;">Visualizar</a></button>
-                 <button class="btn btn-primary"><a href="{% url 'core:edit-disk' disk.id %}" style="text-decoration: none; color: white;">Editar</a></button>
-                 <button class="btn btn-primary"><a href="{% url 'core:detail-disk' disk.id %}" style="text-decoration: none; color: white;">Deletar</a></button>
+                 <button class="btn btn-info"><a href="{% url 'core:detail-disk' disk.id %}" style="text-decoration: none; color: white;">Visualizar</a></button>
+                 <button class="btn btn-secondary"><a href="{% url 'core:edit-disk' disk.id %}" style="text-decoration: none; color: white;">Editar</a></button>
+                 <button class="btn btn-danger"><a href="{% url 'core:delete-disk' disk.id %}" style="text-decoration: none; color: white;">Deletar</a></button>
                 </td>
            </tr>
        </tbody>

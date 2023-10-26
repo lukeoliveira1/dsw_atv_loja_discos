@@ -1,5 +1,5 @@
 from django.urls import path
-from core.views import list_disks, detail_disk, create_disk, edit_disk
+from core.views import list_disks, detail_disk, create_disk, edit_disk, delete_disk
 
 app_name = "core"
 
@@ -8,4 +8,5 @@ urlpatterns = [
     path('create-disk', create_disk, name='create-disk'),
     path('edit-disk/<int:disk_id>', edit_disk, name="edit-disk"),
     path('disk/<int:disk_id>/', detail_disk, name='detail-disk'),
+    path('delete-disk/<int:disk_id>', delete_disk, name='delete-disk')
 ]
