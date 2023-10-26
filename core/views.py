@@ -5,7 +5,6 @@ from core.forms import DiskForm
 
 from core.models import Disk
 
-# Create your views here.
 def list_disks(request):
     disks = Disk.objects.all()
     return render(request, 'index.html', {'disks': disks})
